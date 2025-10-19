@@ -3,12 +3,13 @@ This is a simple raffle application built with .NET 8.0 ASP.NET Razor pages.
 It allows users to enter a raffle and randomly selects winners from the participants based on settings in a feature flag.
 The application demonstrates how to use **Azure App Configuration** to control and monitor feature rollouts.
 
-<div style="display: flex; gap: 10px;">
-  <img src="images/Winner.png" alt="Screenshot of Winner" width="45%" />
+<div style="display: flex; gap: 15px;">
   <img src="images/Non-winner.png" alt="Screenshot of Non-winner" width="45%" />
+  <img src="images/Winner.png" alt="Screenshot of Winner" width="45%" />
 </div>
 
 ## Setup
+Follow these steps to configure and run the Raffle App.
 1. Provision an App Configuration store and an Application Insights instance. Create following environment variables.
 
     ```bash
@@ -55,12 +56,12 @@ The application demonstrates how to use **Azure App Configuration** to control a
 		}
 	}
    ```
-## Simulation
-To simulate multiple raffle entries, you can use the **RaffleAppSimulator** project included in the solution. This console application will send multiple requests to the Raffle App, simulating different users entering the raffle.
+## Simulate raffle entries
+To simulate raffle entries, you can use the **RaffleAppSimulator** project included in the solution. This console application will send multiple requests to the Raffle App, simulating different users entering the raffle.
 
 ![Screenshot of the simulation](images/Simulation.png)
 
-## Telemetry monitoring
+## Monitor telemetry
 Navigate to the **Telemetry** tab of the **Raffle** feature flag in the Azure portal to monitor the distribution of winners and non-winners in real-time.
 
 ![Screenshot of telemetry](images/Telemetry.png)
