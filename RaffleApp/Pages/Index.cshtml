@@ -1,0 +1,58 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Azure Dev Services All-Hands 2025";
+    ViewData["HideHeader"] = true;
+}
+
+<div class="raffle-container">
+    <div class="event-header">
+        <h1 class="event-title">Azure Dev Services</h1>
+        <h2 class="event-subtitle">Welcome to All-Hands Meeting 2025</h2>
+    </div>
+
+    @if (Model.IsWinner)
+    {
+        <div class="result-card winner-card">
+            <div class="confetti"></div>
+            <div class="trophy-icon">🏆</div>
+            <h3 class="result-title winner-title">@Model.Message</h3>
+            <p class="result-subtitle">Raise your hand to collect your reward!</p>
+            <div class="pulse-circle"></div>
+        </div>
+    }
+    else
+    {
+        <div class="result-card standard-card">
+            <div class="sparkle-icon">✨</div>
+            <h3 class="result-title">@Model.Message</h3>
+            <p class="result-subtitle">We're thrilled to have you with us today!</p>
+        </div>
+    }
+
+    <div class="event-footer">
+        <p>Let's build something amazing together! 💙</p>
+    </div>
+</div>
+
+@section Scripts {
+    @if (Model.IsWinner)
+    {
+        <script>
+            // Add confetti animation for winners
+            function createConfetti() {
+                const confettiContainer = document.querySelector('.confetti');
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.backgroundColor = ['#0078D4', '#00BCF2', '#FFB900', '#E81123', '#00CC6A'][Math.floor(Math.random() * 5)];
+                    confettiContainer.appendChild(confetti);
+                }
+            }
+            createConfetti();
+        </script>
+    }
+}
+
